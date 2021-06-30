@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header color="dark"[translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        PINCODE -- Details
+      </ion-card-title> </ion-card-header>
+  </ion-card>
+  <ion-card-content>
+    <ion-item>
+      <ion-label size="large"position="floating">Enter Pincode</ion-label>
+      <ion-input name="name" (mouseleave)="checkfirst($event)"></ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-button (click)="sendtoser()" type="button">Search</ion-button>
+
+    <table>
+
+      <div *ngFor="let x of lst">
+        <div *ngFor="let y of x.PostOffice">
+          <tr>
+            <td>{{Name(y)}}</td>
+            <td>{{BranchType(y)}}</td>
+            <td>{{District(y)}}</td>
+            <td>{{Division(y)}}</td>
+          </tr>
+        </div>
+      </div>
+    </table>
+  </ion-card-content>
 </ion-content>
