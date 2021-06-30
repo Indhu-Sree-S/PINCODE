@@ -13,25 +13,12 @@ export class HomePage {
   lst: content[];
   lst1: one;
   url: any;
+  ab = 0;
 
   constructor(private apiservice: ConnectService) {}
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit() {
-    this.apiservice.getData()
-    .subscribe
-    (
-      data=>
-      {
-        this.lst = data;
-        //this.lst2 = this.lst1;
-        console.log(data);
-      }
-
-    );
-
-
-  }
+  ngOnInit() {}
 
   Name(y: any) {
     this.lst1 = y;
@@ -50,7 +37,7 @@ export class HomePage {
 
   Division(y: any) {
     this.lst1 = y;
-    return this.lst1.Division;
+    return this.lst1.State;
   }
 
   checkfirst(event)
@@ -64,6 +51,19 @@ export class HomePage {
   sendtoser(){
     console.log(this.url);
     alert(this.url +' is your PINCODE');
+    this.apiservice.geturl(this.url);
+
+    this.apiservice.getData()
+    .subscribe
+    (
+      data=>
+      {
+        this.lst = data;
+
+        console.log(data);
+      }
+
+    );
   }
 
 }

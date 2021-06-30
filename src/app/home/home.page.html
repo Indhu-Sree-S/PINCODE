@@ -20,9 +20,11 @@
 
     <table>
 
+
       <div *ngFor="let x of lst">
         <div *ngFor="let y of x.PostOffice">
           <tr>
+
             <td>{{Name(y)}}</td>
             <td>{{BranchType(y)}}</td>
             <td>{{District(y)}}</td>
