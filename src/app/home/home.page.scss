@@ -64,3 +64,17 @@ table {
   font-family: sans-serif;
   font-size: .8rem;
 }
+
+table#s-no {
+  counter-reset: rowNumber;
+}
+
+table#s-no tr:nth-child(n+1) {
+  counter-increment: rowNumber;
+}
+
+table#s-no tr:nth-child(n+1) td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-left: 0.5px;
+}

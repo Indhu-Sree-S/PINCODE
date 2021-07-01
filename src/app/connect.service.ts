@@ -21,7 +21,7 @@ export class ConnectService {
 
   geturl(value: number) {
     this.url = value;
-    alert('I am Here..');
+    //alert('I am Here..');
   }
 
 

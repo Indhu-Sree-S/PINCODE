@@ -18,17 +18,15 @@
 
     <ion-button (click)="sendtoser()" type="button">Search</ion-button>
 
-    <table>
-
-
+    <table id="s-no">
       <div *ngFor="let x of lst">
         <div *ngFor="let y of x.PostOffice">
           <tr>
-
-            <td>{{Name(y)}}</td>
-            <td>{{BranchType(y)}}</td>
-            <td>{{District(y)}}</td>
-            <td>{{Division(y)}}</td>
+            <td></td>
+            <td>{{y.Name}}</td>
+            <td>{{y.BranchType}}</td>
+            <td>{{y.District}}</td>
+            <td>{{y.State}}</td>
           </tr>
         </div>
       </div>

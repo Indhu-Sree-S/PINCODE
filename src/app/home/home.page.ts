@@ -20,26 +20,6 @@ export class HomePage {
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit() {}
 
-  Name(y: any) {
-    this.lst1 = y;
-    return this.lst1.Name;
-  }
-
-  BranchType(y: any) {
-    this.lst1 = y;
-    return this.lst1.BranchType;
-  }
-
-  District(y: any) {
-    this.lst1 = y;
-    return this.lst1.District;
-  }
-
-  Division(y: any) {
-    this.lst1 = y;
-    return this.lst1.State;
-  }
-
   checkfirst(event)
   {
     this.url = event.target.value;
@@ -50,19 +30,18 @@ export class HomePage {
 
   sendtoser(){
     console.log(this.url);
-    alert(this.url +' is your PINCODE');
+    //alert(this.url +' is your PINCODE');
+    //Sending URL
     this.apiservice.geturl(this.url);
-
+    //Getting Data
     this.apiservice.getData()
     .subscribe
     (
       data=>
       {
         this.lst = data;
-
         console.log(data);
       }
-
     );
   }
 
