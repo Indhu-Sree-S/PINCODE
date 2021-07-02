@@ -20,6 +20,7 @@
 
     <table id="s-no">
       <div *ngFor="let x of lst">
+        <p class="ion-text-center">{{checkpin(x)}}</p>
         <div *ngFor="let y of x.PostOffice">
           <tr>
             <td></td>

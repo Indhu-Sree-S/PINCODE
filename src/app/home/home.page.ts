@@ -11,7 +11,7 @@ import { content, one } from '../connect';
 })
 export class HomePage {
   lst: content[];
-  lst1: one;
+  lst1: content;
   url: any;
   ab = 0;
 
@@ -23,9 +23,9 @@ export class HomePage {
   checkfirst(event)
   {
     this.url = event.target.value;
-    if (event.target.value.length !== 6){
-      alert('PINCODE should be in 6 Numbers');
-    }
+    //if (event.target.value.length !== 6){
+      //alert('PINCODE should be in 6 Numbers');
+    //}
   }
 
   sendtoser(){
@@ -40,10 +40,23 @@ export class HomePage {
       data=>
       {
         this.lst = data;
+        this.lst1 = data;
         console.log(data);
+        if (this.lst1.Status === 'Error'){
+          alert('No Records Found');
+        }
       }
     );
   }
 
+
+  checkpin(y: any){
+    if (y.PostOffice === null){
+      return('No Records Found');
+    }
+    else {
+      return(y.Message);
+    }
+  }
 }
 
