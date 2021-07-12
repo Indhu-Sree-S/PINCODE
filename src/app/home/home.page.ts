@@ -18,18 +18,21 @@ export class HomePage {
   constructor(private apiservice: ConnectService) {}
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  checkfirst(event)
-  {
-    this.url = event.target.value;
+  //(mouseleave)="checkfirst($event)"
+  ///checkfirst(event)
+  //{
+    //this.url = event.target.value;
     //if (event.target.value.length !== 6){
       //alert('PINCODE should be in 6 Numbers');
     //}
-  }
+  //}
 
-  sendtoser(){
-    console.log(this.url);
+  sendtoser(value: any){
+    this.url = value.name;
+    //console.log(this.url);
     //alert(this.url +' is your PINCODE');
     //Sending URL
     this.apiservice.geturl(this.url);

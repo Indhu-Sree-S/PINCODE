@@ -4,33 +4,39 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title class="ion-text-center">
-        PINCODE -- Details
-      </ion-card-title> </ion-card-header>
-  </ion-card>
-  <ion-card-content>
-    <ion-item>
-      <ion-label size="large"position="floating">Enter Pincode</ion-label>
-      <ion-input name="name" (mouseleave)="checkfirst($event)"></ion-input>
-    </ion-item>
+  <form #form="ngForm"(submit)="sendtoser(form.value)">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          PINCODE -- Details
+        </ion-card-title> </ion-card-header>
+    </ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label size="large"position="floating">Enter Pincode</ion-label>
+        <ion-input required minlength="6" name="name" ngModel ></ion-input>
+      </ion-item>
 
-    <ion-button (click)="sendtoser()" type="button">Search</ion-button>
-
-    <table id="s-no">
-      <div *ngFor="let x of lst">
-        <p class="ion-text-center ">{{checkpin(x)}}</p>
-        <div *ngFor="let y of x.PostOffice">
-          <tr>
-            <td></td>
-            <td>{{y.Name}}</td>
-            <td>{{y.BranchType}}</td>
-            <td>{{y.District}}</td>
-            <td>{{y.State}}</td>
-          </tr>
+      <ion-button type="submit">Search</ion-button>
+    </ion-card-content>
+    </form>
+      <ion-card-content>
+      <table id="s-no">
+        <div *ngFor="let x of lst">
+          <p class="ion-text-center ">{{checkpin(x)}}</p>
+          <div *ngFor="let y of x.PostOffice">
+            <tr>
+              <td></td>
+              <td>{{y.Name}}</td>
+              <td>{{y.BranchType}}</td>
+              <td>{{y.District}}</td>
+              <td>{{y.State}}</td>
+            </tr>
+          </div>
         </div>
-      </div>
-    </table>
-  </ion-card-content>
+      </table>
+    </ion-card-content>
+
+
+
 </ion-content>
